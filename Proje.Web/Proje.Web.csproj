@@ -1,0 +1,221 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56381964-2F69-4975-A08E-4D00F0768EDD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proje.Web</RootNamespace>
+    <AssemblyName>Proje.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44311</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Celebrities.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Movie.aspx" />
+    <Content Include="Tasarım\assets\css\bootstrap.min.css" />
+    <Content Include="Tasarım\assets\css\icofont.css" />
+    <Content Include="Tasarım\assets\css\magnific-popup.css" />
+    <Content Include="Tasarım\assets\css\owl.carousel.css" />
+    <Content Include="Tasarım\assets\css\owl.video.play.html" />
+    <Content Include="Tasarım\assets\css\responsive.css" />
+    <Content Include="Tasarım\assets\css\slicknav.min.css" />
+    <Content Include="Tasarım\assets\css\style.css" />
+    <Content Include="Tasarım\assets\fonts\icofont7858.svg" />
+    <Content Include="Tasarım\assets\img\author.png" />
+    <Content Include="Tasarım\assets\img\blog-detail.png" />
+    <Content Include="Tasarım\assets\img\breadcrumb.png" />
+    <Content Include="Tasarım\assets\img\cast\cast1.png" />
+    <Content Include="Tasarım\assets\img\cast\cast2.html" />
+    <Content Include="Tasarım\assets\img\cast\cast3.png" />
+    <Content Include="Tasarım\assets\img\cast\cast4.png" />
+    <Content Include="Tasarım\assets\img\cast\cast5.png" />
+    <Content Include="Tasarım\assets\img\cast\cast6.png" />
+    <Content Include="Tasarım\assets\img\cast\cast7.png" />
+    <Content Include="Tasarım\assets\img\favcion.png" />
+    <Content Include="Tasarım\assets\img\footer-bg.png" />
+    <Content Include="Tasarım\assets\img\hero-area.png" />
+    <Content Include="Tasarım\assets\img\loader.gif" />
+    <Content Include="Tasarım\assets\img\logo.png" />
+    <Content Include="Tasarım\assets\img\news\news1.jpg" />
+    <Content Include="Tasarım\assets\img\news\news2.jpg" />
+    <Content Include="Tasarım\assets\img\news\news3.jpg" />
+    <Content Include="Tasarım\assets\img\portfolio\portfolio1.png" />
+    <Content Include="Tasarım\assets\img\portfolio\portfolio2.png" />
+    <Content Include="Tasarım\assets\img\portfolio\portfolio3.png" />
+    <Content Include="Tasarım\assets\img\portfolio\portfolio4.png" />
+    <Content Include="Tasarım\assets\img\portfolio\portfolio5.png" />
+    <Content Include="Tasarım\assets\img\portfolio\portfolio6.png" />
+    <Content Include="Tasarım\assets\img\select-icon.png" />
+    <Content Include="Tasarım\assets\img\sidebar\sidebar1.png" />
+    <Content Include="Tasarım\assets\img\sidebar\sidebar2.png" />
+    <Content Include="Tasarım\assets\img\sidebar\sidebar3.png" />
+    <Content Include="Tasarım\assets\img\sidebar\sidebar4.png" />
+    <Content Include="Tasarım\assets\img\slide1.png" />
+    <Content Include="Tasarım\assets\img\slide2.png" />
+    <Content Include="Tasarım\assets\img\slide3.png" />
+    <Content Include="Tasarım\assets\img\slide4.jpg" />
+    <Content Include="Tasarım\assets\img\video\video1.png" />
+    <Content Include="Tasarım\assets\img\video\video2.png" />
+    <Content Include="Tasarım\assets\img\video\video3.png" />
+    <Content Include="Tasarım\assets\img\video\video4.png" />
+    <Content Include="Tasarım\assets\img\video\video5.png" />
+    <Content Include="Tasarım\assets\js\bootstrap.min.js" />
+    <Content Include="Tasarım\assets\js\isotope.pkgd.min.js" />
+    <Content Include="Tasarım\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Tasarım\assets\js\jquery.min.js" />
+    <Content Include="Tasarım\assets\js\jquery.slicknav.min.js" />
+    <Content Include="Tasarım\assets\js\main.js" />
+    <Content Include="Tasarım\assets\js\owl.carousel.min.js" />
+    <Content Include="Tasarım\blog-details.html" />
+    <Content Include="Tasarım\blog.html" />
+    <Content Include="Tasarım\celebrities.html" />
+    <Content Include="Tasarım\index-2.html" />
+    <Content Include="Tasarım\index.html" />
+    <Content Include="Tasarım\movie-details.html" />
+    <Content Include="Tasarım\movies.html" />
+    <Content Include="Tasarım\top-movies.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Celebrities.aspx.cs">
+      <DependentUpon>Celebrities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Celebrities.aspx.designer.cs">
+      <DependentUpon>Celebrities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movie.aspx.cs">
+      <DependentUpon>Movie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movie.aspx.designer.cs">
+      <DependentUpon>Movie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Tasarım\assets\fonts\icofont7858.eot" />
+    <Content Include="Tasarım\assets\fonts\icofont7858.ttf" />
+    <Content Include="Tasarım\assets\fonts\icofont7858.woff" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Proje.Business\Proje.Business.csproj">
+      <Project>{76e8ed57-cf0d-4bc9-88ef-30eea361880d}</Project>
+      <Name>Proje.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Proje.DataAccess\Proje.DataAccess.csproj">
+      <Project>{42582df5-1e32-4788-aadc-1c4d22054b04}</Project>
+      <Name>Proje.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54986</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44311/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
