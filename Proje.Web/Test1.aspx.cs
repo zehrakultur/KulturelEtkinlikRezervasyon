@@ -8,14 +8,16 @@ using System.Data.SqlClient;
 
 namespace Proje.Web
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Test1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = "Zehra";
+            //SqlConnection baglan=new SqlConnection()
             string isim = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["baglanti"].ConnectionString;
             SqlConnection baglan = new SqlConnection(isim);
             baglan.Open();
+            
         }
+
     }
 }
