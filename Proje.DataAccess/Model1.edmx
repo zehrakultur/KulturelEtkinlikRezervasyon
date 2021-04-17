@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KulturelEtkinlikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bilet">
+          <Key>
+            <PropertyRef Name="BiletId" />
+          </Key>
+          <Property Name="BiletId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BiletAdi" Type="int" />
+          <Property Name="FilmIdFK" Type="int" />
+          <Property Name="KoltukIdFK" Type="int" />
+          <Property Name="SalonIdFK" Type="int" />
+          <Property Name="SeansIdFK" Type="int" />
+          <Property Name="KullaniciIdFK" Type="int" />
+        </EntityType>
+        <EntityType Name="Filmler">
+          <Key>
+            <PropertyRef Name="FilmId" />
+          </Key>
+          <Property Name="FilmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmAdi" Type="varchar(max)" />
+          <Property Name="FilmTurIdFK" Type="int" />
+          <Property Name="FilmYonetmeni" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'KulturelEtkinlik.dbo.FilmSeans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="FilmSeans">
+          <Property Name="FilmIdFK" Type="int" />
+          <Property Name="SeansIdFK" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Koltuk">
+          <Key>
+            <PropertyRef Name="KoltukId" />
+          </Key>
+          <Property Name="KoltukId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalonIdFK" Type="int" />
+          <Property Name="KoltukNo" Type="int" />
+        </EntityType>
+        <EntityType Name="KullaniciBilgi">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAd" Type="varchar" MaxLength="50" />
+          <Property Name="KullaniciSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="KullaniciEmail" Type="varchar(max)" />
+          <Property Name="KullaniciSifre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Salon">
+          <Key>
+            <PropertyRef Name="SalonId" />
+          </Key>
+          <Property Name="SalonId" Type="int" Nullable="false" />
+          <Property Name="SalonAdi" Type="varchar" MaxLength="50" />
+          <Property Name="FilmIdFK" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'KulturelEtkinlik.dbo.SalonSeans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SalonSeans">
+          <Property Name="SalonIdFK" Type="int" />
+          <Property Name="SeansIdFK" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Seans">
+          <Key>
+            <PropertyRef Name="SeansId" />
+          </Key>
+          <Property Name="SeansId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeansSaati" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Turler">
+          <Key>
+            <PropertyRef Name="TurId" />
+          </Key>
+          <Property Name="TurId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TurAdi" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Bilet_Filmler">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="FilmIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_Koltuk">
+          <End Role="Koltuk" Type="Self.Koltuk" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Koltuk">
+              <PropertyRef Name="KoltukId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="KoltukIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_KullaniciBilgi">
+          <End Role="KullaniciBilgi" Type="Self.KullaniciBilgi" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KullaniciBilgi">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="KullaniciIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_Salon">
+          <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="SalonId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="SalonIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_Seans">
+          <End Role="Seans" Type="Self.Seans" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="SeansId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="SeansIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Filmler_Turler">
+          <End Role="Turler" Type="Self.Turler" Multiplicity="0..1" />
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turler">
+              <PropertyRef Name="TurId" />
+            </Principal>
+            <Dependent Role="Filmler">
+              <PropertyRef Name="FilmTurIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'KulturelEtkinlik.dbo.FilmSeans' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_FilmSeans_Filmler" />-->
+        <!--Errors Found During Generation:
+error 6004: The table 'KulturelEtkinlik.dbo.FilmSeans' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_FilmSeans_Seans" />-->
+        <Association Name="FK_Koltuk_Salon">
+          <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+          <End Role="Koltuk" Type="Self.Koltuk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="SalonId" />
+            </Principal>
+            <Dependent Role="Koltuk">
+              <PropertyRef Name="SalonIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salon_Filmler">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="Salon" Type="Self.Salon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="Salon">
+              <PropertyRef Name="FilmIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_SalonSeans_Salon" />-->
+        <!--Errors Found During Generation:
+error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_SalonSeans_Seans" />-->
+        <EntityContainer Name="KulturelEtkinlikModelStoreContainer">
+          <EntitySet Name="Bilet" EntityType="Self.Bilet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filmler" EntityType="Self.Filmler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Koltuk" EntityType="Self.Koltuk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciBilgi" EntityType="Self.KullaniciBilgi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salon" EntityType="Self.Salon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seans" EntityType="Self.Seans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turler" EntityType="Self.Turler" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bilet_Filmler" Association="Self.FK_Bilet_Filmler">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_Koltuk" Association="Self.FK_Bilet_Koltuk">
+            <End Role="Koltuk" EntitySet="Koltuk" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_KullaniciBilgi" Association="Self.FK_Bilet_KullaniciBilgi">
+            <End Role="KullaniciBilgi" EntitySet="KullaniciBilgi" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_Salon" Association="Self.FK_Bilet_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_Seans" Association="Self.FK_Bilet_Seans">
+            <End Role="Seans" EntitySet="Seans" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Filmler_Turler" Association="Self.FK_Filmler_Turler">
+            <End Role="Turler" EntitySet="Turler" />
+            <End Role="Filmler" EntitySet="Filmler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Koltuk_Salon" Association="Self.FK_Koltuk_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="Koltuk" EntitySet="Koltuk" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salon_Filmler" Association="Self.FK_Salon_Filmler">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="Salon" EntitySet="Salon" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KulturelEtkinlikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bilet">
+          <Key>
+            <PropertyRef Name="BiletId" />
+          </Key>
+          <Property Name="BiletId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BiletAdi" Type="Int32" />
+          <Property Name="FilmIdFK" Type="Int32" />
+          <Property Name="KoltukIdFK" Type="Int32" />
+          <Property Name="SalonIdFK" Type="Int32" />
+          <Property Name="SeansIdFK" Type="Int32" />
+          <Property Name="KullaniciIdFK" Type="Int32" />
+          <NavigationProperty Name="Filmler" Relationship="Self.FK_Bilet_Filmler" FromRole="Bilet" ToRole="Filmler" />
+          <NavigationProperty Name="Koltuk" Relationship="Self.FK_Bilet_Koltuk" FromRole="Bilet" ToRole="Koltuk" />
+          <NavigationProperty Name="KullaniciBilgi" Relationship="Self.FK_Bilet_KullaniciBilgi" FromRole="Bilet" ToRole="KullaniciBilgi" />
+          <NavigationProperty Name="Salon" Relationship="Self.FK_Bilet_Salon" FromRole="Bilet" ToRole="Salon" />
+          <NavigationProperty Name="Seans" Relationship="Self.FK_Bilet_Seans" FromRole="Bilet" ToRole="Seans" />
+        </EntityType>
+        <EntityType Name="Filmler">
+          <Key>
+            <PropertyRef Name="FilmId" />
+          </Key>
+          <Property Name="FilmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FilmTurIdFK" Type="Int32" />
+          <Property Name="FilmYonetmeni" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_Filmler" FromRole="Filmler" ToRole="Bilet" />
+          <NavigationProperty Name="Turler" Relationship="Self.FK_Filmler_Turler" FromRole="Filmler" ToRole="Turler" />
+          <NavigationProperty Name="Salon" Relationship="Self.FK_Salon_Filmler" FromRole="Filmler" ToRole="Salon" />
+        </EntityType>
+        <EntityType Name="Koltuk">
+          <Key>
+            <PropertyRef Name="KoltukId" />
+          </Key>
+          <Property Name="KoltukId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalonIdFK" Type="Int32" />
+          <Property Name="KoltukNo" Type="Int32" />
+          <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_Koltuk" FromRole="Koltuk" ToRole="Bilet" />
+          <NavigationProperty Name="Salon" Relationship="Self.FK_Koltuk_Salon" FromRole="Koltuk" ToRole="Salon" />
+        </EntityType>
+        <EntityType Name="KullaniciBilgi">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_KullaniciBilgi" FromRole="KullaniciBilgi" ToRole="Bilet" />
+        </EntityType>
+        <EntityType Name="Salon">
+          <Key>
+            <PropertyRef Name="SalonId" />
+          </Key>
+          <Property Name="SalonId" Type="Int32" Nullable="false" />
+          <Property Name="SalonAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FilmIdFK" Type="Int32" />
+          <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_Salon" FromRole="Salon" ToRole="Bilet" />
+          <NavigationProperty Name="Filmler" Relationship="Self.FK_Salon_Filmler" FromRole="Salon" ToRole="Filmler" />
+          <NavigationProperty Name="Koltuk" Relationship="Self.FK_Koltuk_Salon" FromRole="Salon" ToRole="Koltuk" />
+        </EntityType>
+        <EntityType Name="Seans">
+          <Key>
+            <PropertyRef Name="SeansId" />
+          </Key>
+          <Property Name="SeansId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeansSaati" Type="Time" Precision="7" />
+          <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_Seans" FromRole="Seans" ToRole="Bilet" />
+        </EntityType>
+        <EntityType Name="Turler">
+          <Key>
+            <PropertyRef Name="TurId" />
+          </Key>
+          <Property Name="TurId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TurAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Filmler" Relationship="Self.FK_Filmler_Turler" FromRole="Turler" ToRole="Filmler" />
+        </EntityType>
+        <Association Name="FK_Bilet_Filmler">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="FilmIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_Koltuk">
+          <End Role="Koltuk" Type="Self.Koltuk" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Koltuk">
+              <PropertyRef Name="KoltukId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="KoltukIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_KullaniciBilgi">
+          <End Role="KullaniciBilgi" Type="Self.KullaniciBilgi" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KullaniciBilgi">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="KullaniciIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_Salon">
+          <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="SalonId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="SalonIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bilet_Seans">
+          <End Role="Seans" Type="Self.Seans" Multiplicity="0..1" />
+          <End Role="Bilet" Type="Self.Bilet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="SeansId" />
+            </Principal>
+            <Dependent Role="Bilet">
+              <PropertyRef Name="SeansIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Filmler_Turler">
+          <End Role="Turler" Type="Self.Turler" Multiplicity="0..1" />
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turler">
+              <PropertyRef Name="TurId" />
+            </Principal>
+            <Dependent Role="Filmler">
+              <PropertyRef Name="FilmTurIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salon_Filmler">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="Salon" Type="Self.Salon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="Salon">
+              <PropertyRef Name="FilmIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Koltuk_Salon">
+          <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+          <End Role="Koltuk" Type="Self.Koltuk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="SalonId" />
+            </Principal>
+            <Dependent Role="Koltuk">
+              <PropertyRef Name="SalonIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KulturelEtkinlikEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bilet" EntityType="Self.Bilet" />
+          <EntitySet Name="Filmler" EntityType="Self.Filmler" />
+          <EntitySet Name="Koltuk" EntityType="Self.Koltuk" />
+          <EntitySet Name="KullaniciBilgi" EntityType="Self.KullaniciBilgi" />
+          <EntitySet Name="Salon" EntityType="Self.Salon" />
+          <EntitySet Name="Seans" EntityType="Self.Seans" />
+          <EntitySet Name="Turler" EntityType="Self.Turler" />
+          <AssociationSet Name="FK_Bilet_Filmler" Association="Self.FK_Bilet_Filmler">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_Koltuk" Association="Self.FK_Bilet_Koltuk">
+            <End Role="Koltuk" EntitySet="Koltuk" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_KullaniciBilgi" Association="Self.FK_Bilet_KullaniciBilgi">
+            <End Role="KullaniciBilgi" EntitySet="KullaniciBilgi" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_Salon" Association="Self.FK_Bilet_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bilet_Seans" Association="Self.FK_Bilet_Seans">
+            <End Role="Seans" EntitySet="Seans" />
+            <End Role="Bilet" EntitySet="Bilet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Filmler_Turler" Association="Self.FK_Filmler_Turler">
+            <End Role="Turler" EntitySet="Turler" />
+            <End Role="Filmler" EntitySet="Filmler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salon_Filmler" Association="Self.FK_Salon_Filmler">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="Salon" EntitySet="Salon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Koltuk_Salon" Association="Self.FK_Koltuk_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="Koltuk" EntitySet="Koltuk" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KulturelEtkinlikModelStoreContainer" CdmEntityContainer="KulturelEtkinlikEntities1">
+          <EntitySetMapping Name="Bilet">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.Bilet">
+              <MappingFragment StoreEntitySet="Bilet">
+                <ScalarProperty Name="BiletId" ColumnName="BiletId" />
+                <ScalarProperty Name="BiletAdi" ColumnName="BiletAdi" />
+                <ScalarProperty Name="FilmIdFK" ColumnName="FilmIdFK" />
+                <ScalarProperty Name="KoltukIdFK" ColumnName="KoltukIdFK" />
+                <ScalarProperty Name="SalonIdFK" ColumnName="SalonIdFK" />
+                <ScalarProperty Name="SeansIdFK" ColumnName="SeansIdFK" />
+                <ScalarProperty Name="KullaniciIdFK" ColumnName="KullaniciIdFK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filmler">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.Filmler">
+              <MappingFragment StoreEntitySet="Filmler">
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+                <ScalarProperty Name="FilmTurIdFK" ColumnName="FilmTurIdFK" />
+                <ScalarProperty Name="FilmYonetmeni" ColumnName="FilmYonetmeni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Koltuk">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.Koltuk">
+              <MappingFragment StoreEntitySet="Koltuk">
+                <ScalarProperty Name="KoltukId" ColumnName="KoltukId" />
+                <ScalarProperty Name="SalonIdFK" ColumnName="SalonIdFK" />
+                <ScalarProperty Name="KoltukNo" ColumnName="KoltukNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciBilgi">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.KullaniciBilgi">
+              <MappingFragment StoreEntitySet="KullaniciBilgi">
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="KullaniciSoyad" ColumnName="KullaniciSoyad" />
+                <ScalarProperty Name="KullaniciEmail" ColumnName="KullaniciEmail" />
+                <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salon">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.Salon">
+              <MappingFragment StoreEntitySet="Salon">
+                <ScalarProperty Name="SalonId" ColumnName="SalonId" />
+                <ScalarProperty Name="SalonAdi" ColumnName="SalonAdi" />
+                <ScalarProperty Name="FilmIdFK" ColumnName="FilmIdFK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seans">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.Seans">
+              <MappingFragment StoreEntitySet="Seans">
+                <ScalarProperty Name="SeansId" ColumnName="SeansId" />
+                <ScalarProperty Name="SeansSaati" ColumnName="SeansSaati" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turler">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.Turler">
+              <MappingFragment StoreEntitySet="Turler">
+                <ScalarProperty Name="TurId" ColumnName="TurId" />
+                <ScalarProperty Name="TurAdi" ColumnName="TurAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

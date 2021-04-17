@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4edd93a77c944221acc32487d9c6c53a" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Bilet" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Filmler" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Koltuk" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.KullaniciBilgi" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Salon" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Seans" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Turler" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Filmler" ManuallyRouted="false" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Koltuk" ManuallyRouted="false" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_KullaniciBilgi" ManuallyRouted="false" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Salon" ManuallyRouted="false" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Seans" ManuallyRouted="false" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Filmler_Turler" ManuallyRouted="false" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Salon_Filmler" ManuallyRouted="false" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Koltuk_Salon" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
