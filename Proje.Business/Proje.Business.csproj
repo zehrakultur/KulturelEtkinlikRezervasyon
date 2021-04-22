@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Business3.cs" />
     <Compile Include="DataAccess3.cs" />
+    <Compile Include="Kategori.cs" />
+    <Compile Include="Kitap.cs" />
     <Compile Include="KullaniciBilgi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
