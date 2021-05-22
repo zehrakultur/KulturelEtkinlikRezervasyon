@@ -32,5 +32,8 @@ namespace Proje.DataAccess
         public virtual DbSet<Salon> Salon { get; set; }
         public virtual DbSet<Seans> Seans { get; set; }
         public virtual DbSet<Turler> Turler { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<FilmSeans> FilmSeans { get; set; }
+        public virtual DbSet<SalonSeans> SalonSeans { get; set; }
     }
 }

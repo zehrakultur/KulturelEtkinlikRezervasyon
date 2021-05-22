@@ -23,6 +23,8 @@ namespace Proje.Business
             //ent.Database.Connection.Open();
             var sonuc = ent.KullaniciBilgi.ToList();
 
+           
+
             //Baştan Sona Doğru Sıralama
             //var sonuc1 = ent.KullaniciBilgi.OrderBy(p=> p.KullaniciAd).ToList();
 

@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Business3.cs" />
     <Compile Include="DataAccess3.cs" />
+    <Compile Include="FilmBilgi.cs" />
     <Compile Include="KullaniciBilgi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

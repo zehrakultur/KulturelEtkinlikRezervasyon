@@ -91,7 +91,7 @@ namespace Proje.Web
             //var deger = nesne.VeriEkleme(nesne1);
 
 
-            Proje.Business.KullaniciBilgi
+            //Proje.Business.KullaniciBilgi
 
 
             //Veri Güncelleme entity

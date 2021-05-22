@@ -19,6 +19,7 @@ namespace Proje.DataAccess
         {
             this.Bilet = new HashSet<Bilet>();
             this.Koltuk = new HashSet<Koltuk>();
+            this.SalonSeans = new HashSet<SalonSeans>();
         }
     
         public int SalonId { get; set; }
@@ -30,5 +31,7 @@ namespace Proje.DataAccess
         public virtual Filmler Filmler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Koltuk> Koltuk { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SalonSeans> SalonSeans { get; set; }
     }
 }

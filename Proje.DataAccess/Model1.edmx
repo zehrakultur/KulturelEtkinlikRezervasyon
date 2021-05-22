@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KulturelEtkinlikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KulturelEtkinlikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bilet">
           <Key>
             <PropertyRef Name="BiletId" />
@@ -25,13 +25,18 @@
           <Property Name="FilmAdi" Type="varchar(max)" />
           <Property Name="FilmTurIdFK" Type="int" />
           <Property Name="FilmYonetmeni" Type="varchar(max)" />
+          <Property Name="Aciklama" Type="varchar(max)" />
+          <Property Name="Resim" Type="varchar(max)" />
+          <Property Name="Sure" Type="nchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'KulturelEtkinlik.dbo.FilmSeans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="FilmSeans">
+          <Key>
+            <PropertyRef Name="FilmSeansId" />
+          </Key>
+          <Property Name="FilmSeansId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FilmIdFK" Type="int" />
           <Property Name="SeansIdFK" Type="int" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="Koltuk">
           <Key>
             <PropertyRef Name="KoltukId" />
@@ -58,18 +63,30 @@ warning 6013: The table/view 'KulturelEtkinlik.dbo.FilmSeans' does not have a pr
           <Property Name="SalonAdi" Type="varchar" MaxLength="50" />
           <Property Name="FilmIdFK" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'KulturelEtkinlik.dbo.SalonSeans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="SalonSeans">
+          <Key>
+            <PropertyRef Name="SalonSeansId" />
+          </Key>
+          <Property Name="SalonSeansId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SalonIdFK" Type="int" />
           <Property Name="SeansIdFK" Type="int" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="Seans">
           <Key>
             <PropertyRef Name="SeansId" />
           </Key>
           <Property Name="SeansId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SeansSaati" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Turler">
           <Key>
@@ -150,12 +167,30 @@ warning 6013: The table/view 'KulturelEtkinlik.dbo.SalonSeans' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'KulturelEtkinlik.dbo.FilmSeans' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_FilmSeans_Filmler" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'KulturelEtkinlik.dbo.FilmSeans' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_FilmSeans_Seans" />-->
+        <Association Name="FK_FilmSeans_Filmler">
+          <End Role="Filmler" Type="Self.Filmler" Multiplicity="0..1" />
+          <End Role="FilmSeans" Type="Self.FilmSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="FilmSeans">
+              <PropertyRef Name="FilmIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmSeans_Seans">
+          <End Role="Seans" Type="Self.Seans" Multiplicity="0..1" />
+          <End Role="FilmSeans" Type="Self.FilmSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="SeansId" />
+            </Principal>
+            <Dependent Role="FilmSeans">
+              <PropertyRef Name="SeansIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Koltuk_Salon">
           <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
           <End Role="Koltuk" Type="Self.Koltuk" Multiplicity="*" />
@@ -180,19 +215,40 @@ error 6004: The table 'KulturelEtkinlik.dbo.FilmSeans' is referenced by a relati
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_SalonSeans_Salon" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_SalonSeans_Seans" />-->
+        <Association Name="FK_SalonSeans_Salon">
+          <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+          <End Role="SalonSeans" Type="Self.SalonSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="SalonId" />
+            </Principal>
+            <Dependent Role="SalonSeans">
+              <PropertyRef Name="SalonIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalonSeans_Seans">
+          <End Role="Seans" Type="Self.Seans" Multiplicity="0..1" />
+          <End Role="SalonSeans" Type="Self.SalonSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="SeansId" />
+            </Principal>
+            <Dependent Role="SalonSeans">
+              <PropertyRef Name="SeansIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="KulturelEtkinlikModelStoreContainer">
           <EntitySet Name="Bilet" EntityType="Self.Bilet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Filmler" EntityType="Self.Filmler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilmSeans" EntityType="Self.FilmSeans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Koltuk" EntityType="Self.Koltuk" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KullaniciBilgi" EntityType="Self.KullaniciBilgi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salon" EntityType="Self.Salon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalonSeans" EntityType="Self.SalonSeans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Seans" EntityType="Self.Seans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Turler" EntityType="Self.Turler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Bilet_Filmler" Association="Self.FK_Bilet_Filmler">
             <End Role="Filmler" EntitySet="Filmler" />
@@ -218,6 +274,14 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
             <End Role="Turler" EntitySet="Turler" />
             <End Role="Filmler" EntitySet="Filmler" />
           </AssociationSet>
+          <AssociationSet Name="FK_FilmSeans_Filmler" Association="Self.FK_FilmSeans_Filmler">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="FilmSeans" EntitySet="FilmSeans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmSeans_Seans" Association="Self.FK_FilmSeans_Seans">
+            <End Role="Seans" EntitySet="Seans" />
+            <End Role="FilmSeans" EntitySet="FilmSeans" />
+          </AssociationSet>
           <AssociationSet Name="FK_Koltuk_Salon" Association="Self.FK_Koltuk_Salon">
             <End Role="Salon" EntitySet="Salon" />
             <End Role="Koltuk" EntitySet="Koltuk" />
@@ -226,9 +290,16 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
             <End Role="Filmler" EntitySet="Filmler" />
             <End Role="Salon" EntitySet="Salon" />
           </AssociationSet>
+          <AssociationSet Name="FK_SalonSeans_Salon" Association="Self.FK_SalonSeans_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="SalonSeans" EntitySet="SalonSeans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalonSeans_Seans" Association="Self.FK_SalonSeans_Seans">
+            <End Role="Seans" EntitySet="Seans" />
+            <End Role="SalonSeans" EntitySet="SalonSeans" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KulturelEtkinlikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -260,6 +331,10 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
           <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_Filmler" FromRole="Filmler" ToRole="Bilet" />
           <NavigationProperty Name="Turler" Relationship="Self.FK_Filmler_Turler" FromRole="Filmler" ToRole="Turler" />
           <NavigationProperty Name="Salon" Relationship="Self.FK_Salon_Filmler" FromRole="Filmler" ToRole="Salon" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FilmSeans" Relationship="KulturelEtkinlikModel.FK_FilmSeans_Filmler" FromRole="Filmler" ToRole="FilmSeans" />
+          <Property Name="Sure" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Koltuk">
           <Key>
@@ -292,6 +367,7 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
           <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_Salon" FromRole="Salon" ToRole="Bilet" />
           <NavigationProperty Name="Filmler" Relationship="Self.FK_Salon_Filmler" FromRole="Salon" ToRole="Filmler" />
           <NavigationProperty Name="Koltuk" Relationship="Self.FK_Koltuk_Salon" FromRole="Salon" ToRole="Koltuk" />
+          <NavigationProperty Name="SalonSeans" Relationship="KulturelEtkinlikModel.FK_SalonSeans_Salon" FromRole="Salon" ToRole="SalonSeans" />
         </EntityType>
         <EntityType Name="Seans">
           <Key>
@@ -300,6 +376,8 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
           <Property Name="SeansId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SeansSaati" Type="Time" Precision="7" />
           <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_Seans" FromRole="Seans" ToRole="Bilet" />
+          <NavigationProperty Name="FilmSeans" Relationship="KulturelEtkinlikModel.FK_FilmSeans_Seans" FromRole="Seans" ToRole="FilmSeans" />
+          <NavigationProperty Name="SalonSeans" Relationship="KulturelEtkinlikModel.FK_SalonSeans_Seans" FromRole="Seans" ToRole="SalonSeans" />
         </EntityType>
         <EntityType Name="Turler">
           <Key>
@@ -445,7 +523,104 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
             <End Role="Salon" EntitySet="Salon" />
             <End Role="Koltuk" EntitySet="Koltuk" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="KulturelEtkinlikModel.sysdiagrams" />
+          <EntitySet Name="FilmSeans" EntityType="KulturelEtkinlikModel.FilmSeans" />
+          <EntitySet Name="SalonSeans" EntityType="KulturelEtkinlikModel.SalonSeans" />
+          <AssociationSet Name="FK_FilmSeans_Filmler" Association="KulturelEtkinlikModel.FK_FilmSeans_Filmler">
+            <End Role="Filmler" EntitySet="Filmler" />
+            <End Role="FilmSeans" EntitySet="FilmSeans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmSeans_Seans" Association="KulturelEtkinlikModel.FK_FilmSeans_Seans">
+            <End Role="Seans" EntitySet="Seans" />
+            <End Role="FilmSeans" EntitySet="FilmSeans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalonSeans_Salon" Association="KulturelEtkinlikModel.FK_SalonSeans_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="SalonSeans" EntitySet="SalonSeans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalonSeans_Seans" Association="KulturelEtkinlikModel.FK_SalonSeans_Seans">
+            <End Role="Seans" EntitySet="Seans" />
+            <End Role="SalonSeans" EntitySet="SalonSeans" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="FilmSeans">
+          <Key>
+            <PropertyRef Name="FilmSeansId" />
+          </Key>
+          <Property Name="FilmSeansId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmIdFK" Type="Int32" />
+          <Property Name="SeansIdFK" Type="Int32" />
+          <NavigationProperty Name="Filmler" Relationship="KulturelEtkinlikModel.FK_FilmSeans_Filmler" FromRole="FilmSeans" ToRole="Filmler" />
+          <NavigationProperty Name="Seans" Relationship="KulturelEtkinlikModel.FK_FilmSeans_Seans" FromRole="FilmSeans" ToRole="Seans" />
+        </EntityType>
+        <EntityType Name="SalonSeans">
+          <Key>
+            <PropertyRef Name="SalonSeansId" />
+          </Key>
+          <Property Name="SalonSeansId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalonIdFK" Type="Int32" />
+          <Property Name="SeansIdFK" Type="Int32" />
+          <NavigationProperty Name="Salon" Relationship="KulturelEtkinlikModel.FK_SalonSeans_Salon" FromRole="SalonSeans" ToRole="Salon" />
+          <NavigationProperty Name="Seans" Relationship="KulturelEtkinlikModel.FK_SalonSeans_Seans" FromRole="SalonSeans" ToRole="Seans" />
+        </EntityType>
+        <Association Name="FK_FilmSeans_Filmler">
+          <End Type="KulturelEtkinlikModel.Filmler" Role="Filmler" Multiplicity="0..1" />
+          <End Type="KulturelEtkinlikModel.FilmSeans" Role="FilmSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmler">
+              <PropertyRef Name="FilmId" />
+            </Principal>
+            <Dependent Role="FilmSeans">
+              <PropertyRef Name="FilmIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmSeans_Seans">
+          <End Type="KulturelEtkinlikModel.Seans" Role="Seans" Multiplicity="0..1" />
+          <End Type="KulturelEtkinlikModel.FilmSeans" Role="FilmSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="SeansId" />
+            </Principal>
+            <Dependent Role="FilmSeans">
+              <PropertyRef Name="SeansIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalonSeans_Salon">
+          <End Type="KulturelEtkinlikModel.Salon" Role="Salon" Multiplicity="0..1" />
+          <End Type="KulturelEtkinlikModel.SalonSeans" Role="SalonSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="SalonId" />
+            </Principal>
+            <Dependent Role="SalonSeans">
+              <PropertyRef Name="SalonIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalonSeans_Seans">
+          <End Type="KulturelEtkinlikModel.Seans" Role="Seans" Multiplicity="0..1" />
+          <End Type="KulturelEtkinlikModel.SalonSeans" Role="SalonSeans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="SeansId" />
+            </Principal>
+            <Dependent Role="SalonSeans">
+              <PropertyRef Name="SeansIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -468,6 +643,9 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
           <EntitySetMapping Name="Filmler">
             <EntityTypeMapping TypeName="KulturelEtkinlikModel.Filmler">
               <MappingFragment StoreEntitySet="Filmler">
+                <ScalarProperty Name="Sure" ColumnName="Sure" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
                 <ScalarProperty Name="FilmId" ColumnName="FilmId" />
                 <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
                 <ScalarProperty Name="FilmTurIdFK" ColumnName="FilmTurIdFK" />
@@ -517,6 +695,35 @@ error 6004: The table 'KulturelEtkinlik.dbo.SalonSeans' is referenced by a relat
               <MappingFragment StoreEntitySet="Turler">
                 <ScalarProperty Name="TurId" ColumnName="TurId" />
                 <ScalarProperty Name="TurAdi" ColumnName="TurAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilmSeans">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.FilmSeans">
+              <MappingFragment StoreEntitySet="FilmSeans">
+                <ScalarProperty Name="SeansIdFK" ColumnName="SeansIdFK" />
+                <ScalarProperty Name="FilmIdFK" ColumnName="FilmIdFK" />
+                <ScalarProperty Name="FilmSeansId" ColumnName="FilmSeansId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalonSeans">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.SalonSeans">
+              <MappingFragment StoreEntitySet="SalonSeans">
+                <ScalarProperty Name="SeansIdFK" ColumnName="SeansIdFK" />
+                <ScalarProperty Name="SalonIdFK" ColumnName="SalonIdFK" />
+                <ScalarProperty Name="SalonSeansId" ColumnName="SalonSeansId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

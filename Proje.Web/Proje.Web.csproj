@@ -75,73 +75,98 @@
   <ItemGroup>
     <Content Include="Celebrities.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="GirisYap.aspx" />
+    <Content Include="Hakkimizda.aspx" />
+    <Content Include="Iletisim.aspx" />
     <Content Include="Movie.aspx" />
-    <Content Include="Tasarım\assets\css\bootstrap.min.css" />
-    <Content Include="Tasarım\assets\css\icofont.css" />
-    <Content Include="Tasarım\assets\css\magnific-popup.css" />
-    <Content Include="Tasarım\assets\css\owl.carousel.css" />
-    <Content Include="Tasarım\assets\css\owl.video.play.html" />
-    <Content Include="Tasarım\assets\css\responsive.css" />
-    <Content Include="Tasarım\assets\css\slicknav.min.css" />
-    <Content Include="Tasarım\assets\css\style.css" />
-    <Content Include="Tasarım\assets\fonts\icofont7858.svg" />
-    <Content Include="Tasarım\assets\img\author.png" />
-    <Content Include="Tasarım\assets\img\blog-detail.png" />
-    <Content Include="Tasarım\assets\img\breadcrumb.png" />
-    <Content Include="Tasarım\assets\img\cast\cast1.png" />
-    <Content Include="Tasarım\assets\img\cast\cast2.html" />
-    <Content Include="Tasarım\assets\img\cast\cast3.png" />
-    <Content Include="Tasarım\assets\img\cast\cast4.png" />
-    <Content Include="Tasarım\assets\img\cast\cast5.png" />
-    <Content Include="Tasarım\assets\img\cast\cast6.png" />
-    <Content Include="Tasarım\assets\img\cast\cast7.png" />
-    <Content Include="Tasarım\assets\img\favcion.png" />
-    <Content Include="Tasarım\assets\img\footer-bg.png" />
-    <Content Include="Tasarım\assets\img\hero-area.png" />
-    <Content Include="Tasarım\assets\img\loader.gif" />
-    <Content Include="Tasarım\assets\img\logo.png" />
-    <Content Include="Tasarım\assets\img\news\news1.jpg" />
-    <Content Include="Tasarım\assets\img\news\news2.jpg" />
-    <Content Include="Tasarım\assets\img\news\news3.jpg" />
-    <Content Include="Tasarım\assets\img\portfolio\portfolio1.png" />
-    <Content Include="Tasarım\assets\img\portfolio\portfolio2.png" />
-    <Content Include="Tasarım\assets\img\portfolio\portfolio3.png" />
-    <Content Include="Tasarım\assets\img\portfolio\portfolio4.png" />
-    <Content Include="Tasarım\assets\img\portfolio\portfolio5.png" />
-    <Content Include="Tasarım\assets\img\portfolio\portfolio6.png" />
-    <Content Include="Tasarım\assets\img\select-icon.png" />
-    <Content Include="Tasarım\assets\img\sidebar\sidebar1.png" />
-    <Content Include="Tasarım\assets\img\sidebar\sidebar2.png" />
-    <Content Include="Tasarım\assets\img\sidebar\sidebar3.png" />
-    <Content Include="Tasarım\assets\img\sidebar\sidebar4.png" />
-    <Content Include="Tasarım\assets\img\slide1.png" />
-    <Content Include="Tasarım\assets\img\slide2.png" />
-    <Content Include="Tasarım\assets\img\slide3.png" />
-    <Content Include="Tasarım\assets\img\slide4.jpg" />
-    <Content Include="Tasarım\assets\img\video\video1.png" />
-    <Content Include="Tasarım\assets\img\video\video2.png" />
-    <Content Include="Tasarım\assets\img\video\video3.png" />
-    <Content Include="Tasarım\assets\img\video\video4.png" />
-    <Content Include="Tasarım\assets\img\video\video5.png" />
-    <Content Include="Tasarım\assets\js\bootstrap.min.js" />
-    <Content Include="Tasarım\assets\js\isotope.pkgd.min.js" />
-    <Content Include="Tasarım\assets\js\jquery.magnific-popup.min.js" />
-    <Content Include="Tasarım\assets\js\jquery.min.js" />
-    <Content Include="Tasarım\assets\js\jquery.slicknav.min.js" />
-    <Content Include="Tasarım\assets\js\main.js" />
-    <Content Include="Tasarım\assets\js\owl.carousel.min.js" />
-    <Content Include="Tasarım\blog-details.html" />
-    <Content Include="Tasarım\blog.html" />
-    <Content Include="Tasarım\celebrities.html" />
-    <Content Include="Tasarım\index-2.html" />
-    <Content Include="Tasarım\index.html" />
-    <Content Include="Tasarım\movie-details.html" />
-    <Content Include="Tasarım\movies.html" />
-    <Content Include="Tasarım\top-movies.html" />
+    <Content Include="Tasarim\assets\css\bootstrap.min.css" />
+    <Content Include="Tasarim\assets\css\icofont.css" />
+    <Content Include="Tasarim\assets\css\magnific-popup.css" />
+    <Content Include="Tasarim\assets\css\owl.carousel.css" />
+    <Content Include="Tasarim\assets\css\owl.video.play.html" />
+    <Content Include="Tasarim\assets\css\responsive.css" />
+    <Content Include="Tasarim\assets\css\slicknav.min.css" />
+    <Content Include="Tasarim\assets\css\style.css" />
+    <Content Include="Tasarim\assets\fonts\icofont7858.svg" />
+    <Content Include="Tasarim\assets\img\author.png" />
+    <Content Include="Tasarim\assets\img\back.png" />
+    <Content Include="Tasarim\assets\img\blog-detail.png" />
+    <Content Include="Tasarim\assets\img\breadcrumb.png" />
+    <Content Include="Tasarim\assets\img\cast\cast1.png" />
+    <Content Include="Tasarim\assets\img\cast\cast2.html" />
+    <Content Include="Tasarim\assets\img\cast\cast3.png" />
+    <Content Include="Tasarim\assets\img\cast\cast4.png" />
+    <Content Include="Tasarim\assets\img\cast\cast5.png" />
+    <Content Include="Tasarim\assets\img\cast\cast6.png" />
+    <Content Include="Tasarim\assets\img\cast\cast7.png" />
+    <Content Include="Tasarim\assets\img\favcion.png" />
+    <Content Include="Tasarim\assets\img\feminist.jpg" />
+    <Content Include="Tasarim\assets\img\footer-bg.png" />
+    <Content Include="Tasarim\assets\img\hedda.jpg" />
+    <Content Include="Tasarim\assets\img\hero-area.png" />
+    <Content Include="Tasarim\assets\img\loader.gif" />
+    <Content Include="Tasarim\assets\img\logo.png" />
+    <Content Include="Tasarim\assets\img\logo1.png" />
+    <Content Include="Tasarim\assets\img\matrix.jpg" />
+    <Content Include="Tasarim\assets\img\news\news1.jpg" />
+    <Content Include="Tasarim\assets\img\news\news2.jpg" />
+    <Content Include="Tasarim\assets\img\news\news3.jpg" />
+    <Content Include="Tasarim\assets\img\pk.jpg" />
+    <Content Include="Tasarim\assets\img\portfolio\portfolio1.png" />
+    <Content Include="Tasarim\assets\img\portfolio\portfolio2.png" />
+    <Content Include="Tasarim\assets\img\portfolio\portfolio3.png" />
+    <Content Include="Tasarim\assets\img\portfolio\portfolio4.png" />
+    <Content Include="Tasarim\assets\img\portfolio\portfolio5.png" />
+    <Content Include="Tasarim\assets\img\portfolio\portfolio6.png" />
+    <Content Include="Tasarim\assets\img\preview.png" />
+    <Content Include="Tasarim\assets\img\removebg.png" />
+    <Content Include="Tasarim\assets\img\select-icon.png" />
+    <Content Include="Tasarim\assets\img\sessizlik.jpg" />
+    <Content Include="Tasarim\assets\img\sidebar\sidebar1.png" />
+    <Content Include="Tasarim\assets\img\sidebar\sidebar2.png" />
+    <Content Include="Tasarim\assets\img\sidebar\sidebar3.png" />
+    <Content Include="Tasarim\assets\img\sidebar\sidebar4.png" />
+    <Content Include="Tasarim\assets\img\sinemaLogo.png" />
+    <Content Include="Tasarim\assets\img\slide1.png" />
+    <Content Include="Tasarim\assets\img\slide2.png" />
+    <Content Include="Tasarim\assets\img\slide3.png" />
+    <Content Include="Tasarim\assets\img\slide4.jpg" />
+    <Content Include="Tasarim\assets\img\social.jpg" />
+    <Content Include="Tasarim\assets\img\socialDilemma.jpg" />
+    <Content Include="Tasarim\assets\img\theMatrix.jpg" />
+    <Content Include="Tasarim\assets\img\thesocial.png" />
+    <Content Include="Tasarim\assets\img\video\video1.png" />
+    <Content Include="Tasarim\assets\img\video\video2.png" />
+    <Content Include="Tasarim\assets\img\video\video3.png" />
+    <Content Include="Tasarim\assets\img\video\video4.png" />
+    <Content Include="Tasarim\assets\img\video\video5.png" />
+    <Content Include="Tasarim\assets\img\yeniLogo.png" />
+    <Content Include="Tasarim\assets\js\bootstrap.min.js" />
+    <Content Include="Tasarim\assets\js\isotope.pkgd.min.js" />
+    <Content Include="Tasarim\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Tasarim\assets\js\jquery.min.js" />
+    <Content Include="Tasarim\assets\js\jquery.slicknav.min.js" />
+    <Content Include="Tasarim\assets\js\main.js" />
+    <Content Include="Tasarim\assets\js\owl.carousel.min.js" />
+    <Content Include="Tasarim\blog-details.html" />
+    <Content Include="Tasarim\blog.html" />
+    <Content Include="Tasarim\celebrities.html" />
+    <Content Include="Tasarim\index-2.html" />
+    <Content Include="Tasarim\index.html" />
+    <Content Include="Tasarim\movie-details.html" />
+    <Content Include="Tasarim\movies.html" />
+    <Content Include="Tasarim\top-movies.html" />
     <Content Include="test2.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anasayfa.Master.cs">
+      <DependentUpon>Anasayfa.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anasayfa.Master.designer.cs">
+      <DependentUpon>Anasayfa.Master</DependentUpon>
+    </Compile>
     <Compile Include="Celebrities.aspx.cs">
       <DependentUpon>Celebrities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +180,27 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GirisYap.aspx.cs">
+      <DependentUpon>GirisYap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GirisYap.aspx.designer.cs">
+      <DependentUpon>GirisYap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hakkimizda.aspx.cs">
+      <DependentUpon>Hakkimizda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hakkimizda.aspx.designer.cs">
+      <DependentUpon>Hakkimizda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Iletisim.aspx.cs">
+      <DependentUpon>Iletisim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Iletisim.aspx.designer.cs">
+      <DependentUpon>Iletisim.aspx</DependentUpon>
     </Compile>
     <Compile Include="Movie.aspx.cs">
       <DependentUpon>Movie.aspx</DependentUpon>
@@ -173,10 +219,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Anasayfa.Master" />
     <None Include="packages.config" />
-    <Content Include="Tasarım\assets\fonts\icofont7858.eot" />
-    <Content Include="Tasarım\assets\fonts\icofont7858.ttf" />
-    <Content Include="Tasarım\assets\fonts\icofont7858.woff" />
+    <Content Include="Tasarim\assets\fonts\icofont7858.eot" />
+    <Content Include="Tasarim\assets\fonts\icofont7858.ttf" />
+    <Content Include="Tasarim\assets\fonts\icofont7858.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

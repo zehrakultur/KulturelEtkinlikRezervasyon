@@ -1,0 +1,410 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Anasayfa.master.cs" Inherits="Proje.Web.Anasayfa" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kültür Film</title>
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="Tasarim/assets/img/favcion.png" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="Tasarim/assets/css/bootstrap.min.css" media="all" />
+    <!-- Slick nav CSS -->
+    <link rel="stylesheet" type="text/css" href="Tasarim/assets/css/slicknav.min.css" media="all" />
+    <!-- Iconfont CSS -->
+    <link rel="stylesheet" type="text/css" href="Tasarim/assets/css/icofont.css" media="all" />
+    <!-- Owl carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="Tasarim/assets/css/owl.carousel.css">
+    <!-- Popup CSS -->
+    <link rel="stylesheet" type="text/css" href="Tasarim/assets/css/magnific-popup.css">
+    <!-- Main style CSS -->
+    <link rel="stylesheet" type="text/css" href="Tasarim/assets/css/style.css" media="all" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="Tasarim/assets/css/responsive.css" media="all" />
+    <!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+     <%--   <div>
+            <%--input işlemi için kullanılacak
+        </div> --%>
+    
+    <!-- Page loader -->
+    <div id="preloader"></div>
+    <!-- header section start -->
+    <header class="header">
+        <div class="container">
+            <div class="header-area">
+                <div class="logo">
+                    <a href="index-2.html">
+                        <img src="Tasarim/assets/img/yeniLogo.png" alt="logo" /></a>
+                </div>
+                <div class="header-right">
+                    
+                    <ul style="margin-left:auto">
+                        <li><a class="login-popup" href="#">Giriş Yap</a></li>
+                        <li><a class="login-popup" href="#">Kayıt Ol</a></li>
+                    </ul>
+                </div>
+                <div class="menu-area">
+                    <div class="responsive-menu"></div>
+                    <div class="mainmenu">
+                        <ul id="primary-menu">
+                            <li><a class="active" href="Default.aspx">Ana Sayfa</a></li>
+                            <li><a href="Hakkimizda.aspx">Tüm Filmler</a></li>
+                            <li><a href="Iletisim.aspx">İletişim</a></li>
+                            <li><a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i>Bilet Al</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="login-area">
+        <div class="login-box">
+            <a href="#"><i class="icofont icofont-close"></i></a>
+            <h2>GİRİŞ YAP</h2>
+            
+            
+                <h6>Kullanıcı Adı / Email</h6>
+                <asp:TextBox ID="TextBox1" runat="server" ForeColor="#eb315a"></asp:TextBox>  
+                <h6>Şifre</h6>
+                <asp:TextBox ID="TextBox2" runat="server" ForeColor="#eb315a" TextMode="Password"></asp:TextBox>
+               <%-- <input type="text" />--%>
+                <div class="login-remember">
+                    <input type="checkbox" />
+                    <span>Beni Hatırla</span>
+                </div>
+                <div class="login-signup">
+                    <%--<span>KAYDOL</span>--%>
+                </div>
+                <asp:Button ID="Button1" runat="server" Text="Giriş Yap" class="theme-btn" BackColor="#eb315a" BorderColor="#eb315a" OnClick="Button1_Click"/>
+                <asp:Button ID="Button2" runat="server" Text="Kayıt Ol" class="theme-btn" BackColor="#eb315a" BorderColor="#eb315a" OnClick="Button2_Click"/>
+                <%--<a href="#" class="theme-btn">Giriş Yap</a>
+                <a href="#" class="theme-btn">Kayıt Ol</a>--%>
+
+                
+        </div>
+    </div>
+    
+    <div class="buy-ticket">
+        <div class="container">
+            <div class="buy-ticket-area">
+                <a href="#"><i class="icofont icofont-close"></i></a>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="buy-ticket-box">
+                            <h4>Bilet Al</h4>
+                            <h5>Koltuk Seçimi</h5>
+                            <h6>Sahne</h6>
+                            <div class="ticket-box-table">
+                                <table class="ticket-table-seat">
+                                    <tr>
+                                        <td><a href="#">1</a></td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                    </tr>
+                                </table>
+                                <table class="ticket-table-seat">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="active">1</td>
+                                        <td class="active">1</td>
+                                        <td class="active">1</td>
+                                        <td class="active">1</td>
+                                        <td class="active">1</td>
+                                        <td class="active">1</td>
+                                        <td class="active">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                    </tr>
+                                </table>
+                                <table class="ticket-table-seat">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="ticket-box-available">
+                                <input type="checkbox" />
+                                <span>Boş</span>
+                                <input type="checkbox" checked />
+                                <span>Dolu</span>
+                                <input type="checkbox" />
+                                <span>Seçildi</span>
+                            </div>
+                            <a href="#" class="theme-btn">Önce</a>
+                            <a href="#" class="theme-btn">Sonra</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="buy-ticket-box mtr-30">
+                            <h4>Bilet Bilgileriniz</h4>
+                            <ul>
+                                <li>
+                                    <p>Salon</p>
+                                    <span>Salon 1</span>
+                                </li>
+                                <li>
+                                    <p>Zaman</p>
+                                    <span>2021.05.4   20:40</span>
+                                </li>
+                                <li>
+                                    <p>Film Adı</p>
+                                    <span>The Social Dilemma</span>
+                                </li>
+                                <li>
+                                    <p>Koltuk Numarası</p>
+                                    <span>2A, 2B, 2C</span>
+                                </li>
+                                <li>
+                                    <p>Ücret</p>
+                                    <span>45 TL</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header section end -->
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+
+     
+    <!-- footer section start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="widget">
+                        <img src="Tasarim/assets/img/removebg.png" alt="about" />
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="widget">
+                        <ul>
+                        <li><a href="Default.aspx"><h4>Ana Sayfa</h4></a></li>
+                            </ul>
+                        <ul>
+                            <li><a href="Hakkimizda.aspx"><p>Tüm Filmler</p></a></li>
+                            <li><a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i>Bilet Al</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+						<div class="widget">
+                            <ul>
+							<li><a href="Hakkimizda.aspx" ><h4>Hakkımızda</h4></a></li>
+                                </ul>
+								<p>Siz değerli izleyicilerimize en iyi şekilde hizmet vermek için 2021 yılında projemizi hayata geçirdik. Sizlere en iyi şekilde hizmet vermek için çalışıyoruz.</p>
+						</div>
+                    </div>
+                <div class="col-lg-3 col-sm-6">
+						<div class="widget">
+                            <ul>
+							<li><a href="Iletisim.aspx"><h4>Bize Ulaşın</h4></a></li>
+                                </ul>
+                            <p>Kötekli Mahallesi, 48000 Menteşe/Muğla</p>
+							<p>Tel: (+90) 100 111 00 00</p>
+                            <p>E-mail: kulturfilm@kultur.com</p>
+						</div>
+                    </div>
+            </div>
+            <hr />
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                        
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <div class="copyright-content">
+                            <a href="#" class="scrollToTop">Sayfayı Yukarı Kaydır<i class="icofont icofont-arrow-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+         </form>
+    <!-- footer section end -->
+    <!-- jquery main JS -->
+    <script src="Tasarim/assets/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="Tasarim/assets/js/bootstrap.min.js"></script>
+    <!-- Slick nav JS -->
+    <script src="Tasarim/assets/js/jquery.slicknav.min.js"></script>
+    <!-- owl carousel JS -->
+    <script src="Tasarim/assets/js/owl.carousel.min.js"></script>
+    <!-- Popup JS -->
+    <script src="Tasarim/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Isotope JS -->
+    <script src="Tasarim/assets/js/isotope.pkgd.min.js"></script>
+    <!-- main JS -->
+    <script src="Tasarim/assets/js/main.js"></script>
+   
+</body>
+</html>

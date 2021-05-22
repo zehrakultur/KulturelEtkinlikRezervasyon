@@ -18,6 +18,8 @@ namespace Proje.DataAccess
         public Seans()
         {
             this.Bilet = new HashSet<Bilet>();
+            this.FilmSeans = new HashSet<FilmSeans>();
+            this.SalonSeans = new HashSet<SalonSeans>();
         }
     
         public int SeansId { get; set; }
@@ -25,5 +27,9 @@ namespace Proje.DataAccess
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bilet> Bilet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FilmSeans> FilmSeans { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SalonSeans> SalonSeans { get; set; }
     }
 }

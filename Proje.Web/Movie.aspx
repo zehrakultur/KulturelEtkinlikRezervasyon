@@ -58,7 +58,7 @@
 						<div class="responsive-menu"></div>
 					    <div class="mainmenu">
                             <ul id="primary-menu">
-                                <li><a href="/Tasarım/index-2.html">Home</a></li>
+                                <li><a href="/Tasarım/index-2.html">Ana Sayfa</a></li>
                                 <li><a class="active" href="/Tasarım/movies.html">Movies</a></li>
                                 <li><a href="/Tasarım/celebrities.html">CelebritiesList</a></li>
                                 <li><a href="/Tasarım/top-movies.html">Top Movies</a></li>
