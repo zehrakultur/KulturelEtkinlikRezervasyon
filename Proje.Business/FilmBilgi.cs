@@ -25,15 +25,17 @@ namespace Proje.Business
 
         public Proje.DataAccess.Filmler Next()
         {
+
             Proje.DataAccess.KulturelEtkinlikEntities1 entF = new DataAccess.KulturelEtkinlikEntities1();
-            var sonuc = entF.Filmler.OrderByDescending(p => p.FilmId);
+            var sonuc = entF.Filmler.OrderBy(p => p.FilmId);
             return sonuc.FirstOrDefault();
+            
         }
 
         public Proje.DataAccess.Filmler Prev()
         {
             Proje.DataAccess.KulturelEtkinlikEntities1 entF = new DataAccess.KulturelEtkinlikEntities1();
-            var sonuc = entF.Filmler.OrderBy(p => p.FilmId);
+            var sonuc = entF.Filmler.OrderByDescending(p => p.FilmId);
             return sonuc.FirstOrDefault();
         }
 
@@ -41,6 +43,13 @@ namespace Proje.Business
         {
             Proje.DataAccess.KulturelEtkinlikEntities1 tum = new DataAccess.KulturelEtkinlikEntities1();
             var sonuc = tum.Filmler.ToList();
+            return sonuc;
+        }
+
+        public List<Proje.DataAccess.Filmler> FilmAdiBilgi()
+        {
+            Proje.DataAccess.KulturelEtkinlikEntities1 filmAdlari = new DataAccess.KulturelEtkinlikEntities1();
+            var sonuc = filmAdlari.Filmler.ToList();
             return sonuc;
         }
     }

@@ -80,6 +80,7 @@ namespace Proje.Web
             //var sonuc = nesne.Listele();
             //GridView1.DataSource = sonuc;
             //GridView1.DataBind();
+            
 
             //Veri ekleme entity
             //Proje.Business.KullaniciBilgi nesne = new Business.KullaniciBilgi();

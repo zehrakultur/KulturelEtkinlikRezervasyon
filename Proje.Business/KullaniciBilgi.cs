@@ -14,6 +14,7 @@ namespace Proje.Business
         public string KullaniciSoyad { get; set; }
         public string KullaniciEmail { get; set; }
         public string KullaniciSifre { get; set; }
+        public string KullaniciRol { get; set; }
 
         //Entity Framework
 
@@ -33,10 +34,6 @@ namespace Proje.Business
             return sonuc;
         }
 
-
-
-
-
         public Proje.DataAccess.KullaniciBilgi GetById(string KullaniciAd)
         {
             Proje.DataAccess.KulturelEtkinlikEntities1 ent = new DataAccess.KulturelEtkinlikEntities1();
@@ -48,16 +45,17 @@ namespace Proje.Business
         //Entity Framework Veri Ekleme
         public string VeriEkleme(Proje.DataAccess.KullaniciBilgi nesne)
         {
-            //Proje.DataAccess.KulturelEtkinlikEntities1 ekleme = new DataAccess.KulturelEtkinlikEntities1();
-            //Proje.DataAccess.KullaniciBilgi yeni = new DataAccess.KullaniciBilgi();
+            Proje.DataAccess.KulturelEtkinlikEntities1 ekleme = new DataAccess.KulturelEtkinlikEntities1();
+            Proje.DataAccess.KullaniciBilgi yeni = new DataAccess.KullaniciBilgi();
 
-            //yeni.KullaniciAd = nesne.KullaniciAd;
-            //yeni.KullaniciSoyad = nesne.KullaniciSoyad;
-            //yeni.KullaniciEmail = nesne.KullaniciEmail;
-            //yeni.KullaniciSifre = nesne.KullaniciSifre;
-            //ekleme.KullaniciBilgi.Add(yeni);
-            //ekleme.SaveChanges();
-            //var verileriGetir = Listele();
+            yeni.KullaniciAd = nesne.KullaniciAd;
+            yeni.KullaniciSoyad = nesne.KullaniciSoyad;
+            yeni.KullaniciEmail = nesne.KullaniciEmail;
+            yeni.KullaniciSifre = nesne.KullaniciSifre;
+            yeni.KullaniciRol = nesne.KullaniciRol;
+            ekleme.KullaniciBilgi.Add(yeni);
+            ekleme.SaveChanges();
+            var verileriGetir = Listele();
 
 
             //yeni.KullaniciAd = "Ayşe";

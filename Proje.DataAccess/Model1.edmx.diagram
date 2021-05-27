@@ -27,6 +27,7 @@
         <AssociationConnector Association="KulturelEtkinlikModel.FK_FilmSeans_Seans" />
         <AssociationConnector Association="KulturelEtkinlikModel.FK_SalonSeans_Salon" />
         <AssociationConnector Association="KulturelEtkinlikModel.FK_SalonSeans_Seans" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.BilgiEdinmeFormu" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

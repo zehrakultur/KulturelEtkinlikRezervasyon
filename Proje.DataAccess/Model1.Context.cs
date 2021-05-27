@@ -35,5 +35,6 @@ namespace Proje.DataAccess
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<FilmSeans> FilmSeans { get; set; }
         public virtual DbSet<SalonSeans> SalonSeans { get; set; }
+        public virtual DbSet<BilgiEdinmeFormu> BilgiEdinmeFormu { get; set; }
     }
 }

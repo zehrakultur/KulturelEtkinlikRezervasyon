@@ -25,6 +25,7 @@ namespace Proje.DataAccess
         public string KullaniciSoyad { get; set; }
         public string KullaniciEmail { get; set; }
         public string KullaniciSifre { get; set; }
+        public string KullaniciRol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bilet> Bilet { get; set; }

@@ -39,6 +39,14 @@
 		$('.login-area').hide();
 		return false;
 	});
+	$('.register-popup').on('click', function () {
+		$('.register-area').show();
+		return false;
+	});
+	$('.register-box > a').on('click', function () {
+		$('.register-area').hide();
+		return false;
+	});
 	
 	/*----------------------------
     START - Slider activation
@@ -47,7 +55,7 @@
 	heroSlider.owlCarousel({
 		loop:true,
 		dots: true,
-		autoplay: false,
+		autoplay: true,
 		autoplayTimeout:4000,
 		nav: false,
 		items: 1,

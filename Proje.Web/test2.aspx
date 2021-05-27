@@ -28,7 +28,7 @@
             <br />
             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True" Visible="false">
             </asp:GridView>
         </div>
     </form>

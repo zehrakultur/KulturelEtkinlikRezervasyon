@@ -11,7 +11,7 @@ namespace Proje.Web
 {
 
 
-    public partial class Iletisim
+    public partial class Yonetici
     {
 
         /// <summary>

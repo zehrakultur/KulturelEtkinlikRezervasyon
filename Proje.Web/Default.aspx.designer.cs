@@ -24,13 +24,13 @@ namespace Proje.Web
         protected global::System.Web.UI.WebControls.Repeater rptFilm;
 
         /// <summary>
-        /// Image2 control.
+        /// prevImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Image prevImage;
 
         /// <summary>
         /// filmPrevAdi control.
@@ -51,6 +51,15 @@ namespace Proje.Web
         protected global::System.Web.UI.WebControls.Label filmYonetmenPrev;
 
         /// <summary>
+        /// prevSure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label prevSure;
+
+        /// <summary>
         /// filmPrevAciklama control.
         /// </summary>
         /// <remarks>
@@ -60,13 +69,13 @@ namespace Proje.Web
         protected global::System.Web.UI.WebControls.Label filmPrevAciklama;
 
         /// <summary>
-        /// Image1 control.
+        /// nextImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image nextImage;
 
         /// <summary>
         /// filmNextAdi control.
@@ -85,6 +94,15 @@ namespace Proje.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label filmNextYonetmen;
+
+        /// <summary>
+        /// nextSure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label nextSure;
 
         /// <summary>
         /// filmNextAciklama control.

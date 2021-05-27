@@ -18,10 +18,32 @@ namespace Proje.Web
             rptFilm.DataSource = filmVeri.Listele();
             rptFilm.DataBind();
 
-            //Image1.ImageUrl("Tasarim/assets/img/social.jpg");
 
-            //filmVeri.Next().filmNextAciklama;
+            
+
+            var next= filmVeri.Next();
+
+            filmNextAdi.Text = next.FilmAdi;
+            filmNextYonetmen.Text = next.FilmYonetmeni;
+            filmNextAciklama.Text = next.Aciklama;
+            nextSure.Text = next.Sure;
+            nextImage.ImageUrl = "Tasarim/assets/img/"+next.Resim+"";
+
+
+            var prev = filmVeri.Prev();
+
+            filmPrevAdi.Text = prev.FilmAdi;
+            filmYonetmenPrev.Text = prev.FilmYonetmeni;
+            filmPrevAciklama.Text = prev.Aciklama;
+            prevSure.Text = prev.Sure;
+            prevImage.ImageUrl = "Tasarim/assets/img/" + prev.Resim + "";
+
 
         }
+
+
     }
+
+
+
 }

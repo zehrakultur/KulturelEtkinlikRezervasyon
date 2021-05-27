@@ -53,6 +53,9 @@
     <Compile Include="Bilet.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BilgiEdinmeFormu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Filmler.cs">
       <DependentUpon>Model1.tt</DependentUpon>

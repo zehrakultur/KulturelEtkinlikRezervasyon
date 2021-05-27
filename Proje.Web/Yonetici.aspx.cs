@@ -7,16 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace Proje.Web
 {
-    public partial class Hakkimizda : System.Web.UI.Page
+    public partial class Yonetici : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Proje.Business.FilmBilgi tumFilmVeri = new Proje.Business.FilmBilgi();
 
-            rptTumFilm.DataSource = tumFilmVeri.Listele();
-            rptTumFilm.DataBind();
-
-            
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

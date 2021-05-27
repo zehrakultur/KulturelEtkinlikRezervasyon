@@ -104,13 +104,16 @@
     <Content Include="Tasarim\assets\img\footer-bg.png" />
     <Content Include="Tasarim\assets\img\hedda.jpg" />
     <Content Include="Tasarim\assets\img\hero-area.png" />
+    <Content Include="Tasarim\assets\img\konum.png" />
     <Content Include="Tasarim\assets\img\loader.gif" />
     <Content Include="Tasarim\assets\img\logo.png" />
     <Content Include="Tasarim\assets\img\logo1.png" />
     <Content Include="Tasarim\assets\img\matrix.jpg" />
+    <Content Include="Tasarim\assets\img\mini.jpeg" />
     <Content Include="Tasarim\assets\img\news\news1.jpg" />
     <Content Include="Tasarim\assets\img\news\news2.jpg" />
     <Content Include="Tasarim\assets\img\news\news3.jpg" />
+    <Content Include="Tasarim\assets\img\peekay.jpg" />
     <Content Include="Tasarim\assets\img\pk.jpg" />
     <Content Include="Tasarim\assets\img\portfolio\portfolio1.png" />
     <Content Include="Tasarim\assets\img\portfolio\portfolio2.png" />
@@ -158,6 +161,7 @@
     <Content Include="Tasarim\top-movies.html" />
     <Content Include="test2.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Yonetici.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Anasayfa.Master.cs">
@@ -216,6 +220,13 @@
     </Compile>
     <Compile Include="test2.aspx.designer.cs">
       <DependentUpon>test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici.aspx.cs">
+      <DependentUpon>Yonetici.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetici.aspx.designer.cs">
+      <DependentUpon>Yonetici.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

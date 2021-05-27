@@ -17,6 +17,16 @@
           <Property Name="SeansIdFK" Type="int" />
           <Property Name="KullaniciIdFK" Type="int" />
         </EntityType>
+        <EntityType Name="BilgiEdinmeFormu">
+          <Key>
+            <PropertyRef Name="MesajId" />
+          </Key>
+          <Property Name="MesajId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Mesaj" Type="nvarchar(max)" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Filmler">
           <Key>
             <PropertyRef Name="FilmId" />
@@ -54,6 +64,7 @@
           <Property Name="KullaniciSoyad" Type="varchar" MaxLength="50" />
           <Property Name="KullaniciEmail" Type="varchar(max)" />
           <Property Name="KullaniciSifre" Type="varchar" MaxLength="50" />
+          <Property Name="KullaniciRol" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Salon">
           <Key>
@@ -241,6 +252,7 @@
         </Association>
         <EntityContainer Name="KulturelEtkinlikModelStoreContainer">
           <EntitySet Name="Bilet" EntityType="Self.Bilet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BilgiEdinmeFormu" EntityType="Self.BilgiEdinmeFormu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Filmler" EntityType="Self.Filmler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FilmSeans" EntityType="Self.FilmSeans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Koltuk" EntityType="Self.Koltuk" Schema="dbo" store:Type="Tables" />
@@ -356,6 +368,7 @@
           <Property Name="KullaniciEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Bilet" Relationship="Self.FK_Bilet_KullaniciBilgi" FromRole="KullaniciBilgi" ToRole="Bilet" />
+          <Property Name="KullaniciRol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Salon">
           <Key>
@@ -542,6 +555,7 @@
             <End Role="Seans" EntitySet="Seans" />
             <End Role="SalonSeans" EntitySet="SalonSeans" />
           </AssociationSet>
+          <EntitySet Name="BilgiEdinmeFormu" EntityType="KulturelEtkinlikModel.BilgiEdinmeFormu" />
         </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -621,6 +635,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BilgiEdinmeFormu">
+          <Key>
+            <PropertyRef Name="MesajId" />
+          </Key>
+          <Property Name="MesajId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -665,6 +689,7 @@
           <EntitySetMapping Name="KullaniciBilgi">
             <EntityTypeMapping TypeName="KulturelEtkinlikModel.KullaniciBilgi">
               <MappingFragment StoreEntitySet="KullaniciBilgi">
+                <ScalarProperty Name="KullaniciRol" ColumnName="KullaniciRol" />
                 <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
                 <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
                 <ScalarProperty Name="KullaniciSoyad" ColumnName="KullaniciSoyad" />
@@ -724,6 +749,17 @@
                 <ScalarProperty Name="SeansIdFK" ColumnName="SeansIdFK" />
                 <ScalarProperty Name="SalonIdFK" ColumnName="SalonIdFK" />
                 <ScalarProperty Name="SalonSeansId" ColumnName="SalonSeansId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BilgiEdinmeFormu">
+            <EntityTypeMapping TypeName="KulturelEtkinlikModel.BilgiEdinmeFormu">
+              <MappingFragment StoreEntitySet="BilgiEdinmeFormu">
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="MesajId" ColumnName="MesajId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
