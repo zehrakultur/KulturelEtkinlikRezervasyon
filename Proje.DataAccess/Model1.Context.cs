@@ -26,15 +26,14 @@ namespace Proje.DataAccess
         }
     
         public virtual DbSet<Bilet> Bilet { get; set; }
+        public virtual DbSet<BilgiEdinmeFormu> BilgiEdinmeFormu { get; set; }
         public virtual DbSet<Filmler> Filmler { get; set; }
+        public virtual DbSet<FilmSeans> FilmSeans { get; set; }
         public virtual DbSet<Koltuk> Koltuk { get; set; }
         public virtual DbSet<KullaniciBilgi> KullaniciBilgi { get; set; }
         public virtual DbSet<Salon> Salon { get; set; }
+        public virtual DbSet<SalonSeans> SalonSeans { get; set; }
         public virtual DbSet<Seans> Seans { get; set; }
         public virtual DbSet<Turler> Turler { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<FilmSeans> FilmSeans { get; set; }
-        public virtual DbSet<SalonSeans> SalonSeans { get; set; }
-        public virtual DbSet<BilgiEdinmeFormu> BilgiEdinmeFormu { get; set; }
     }
 }

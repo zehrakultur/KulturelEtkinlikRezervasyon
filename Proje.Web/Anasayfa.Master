@@ -51,7 +51,9 @@
                     <div class="header-right">
 
                         <ul style="margin-left: auto">
-                            <li><a class="login-popup" href="#">Giriş Yap</a></li>
+
+                            <li>
+                                <asp:LinkButton CssClass="login-popup" ID="LinkButton1" runat="server">Giriş Yap</asp:LinkButton></li>
                             <li><a class="register-popup" href="#">Kayıt Ol</a></li>
                         </ul>
                     </div>
@@ -59,7 +61,7 @@
                         <div class="responsive-menu"></div>
                         <div class="mainmenu">
                             <ul id="primary-menu">
-                                <li><a class="active" href="Default.aspx">Ana Sayfa</a></li>
+                                <li><a href="Default.aspx">Ana Sayfa</a></li>
                                 <li><a href="Hakkimizda.aspx">Tüm Filmler</a></li>
                                 <li><a href="Iletisim.aspx">İletişim</a></li>
                                 <li><a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i>Bilet Al</a></li>
@@ -128,197 +130,116 @@
                                 <h5>Koltuk Seçimi</h5>
                                 <h6>Sahne</h6>
                                 <div class="ticket-box-table">
-
-
                                     <table class="ticket-table-seat">
                                         <tr>
-
-
-                                            <td>
-                                                <asp:LinkButton PostBackUrl="#" ID="LinkButton2" runat="server">1</asp:LinkButton></td>
-                                            <td>
-                                                <asp:LinkButton ID="LinkButton1" runat="server">1</asp:LinkButton></td>
                                             <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td>22</td>
+                                            <td>23</td>
+                                            <td>24</td>
+                                            <td>25</td>
+                                            <td>26</td>
+                                            <td>27</td>
+                                            <td>28</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td>43</td>
+                                            <td>44</td>
+                                            <td>45</td>
+                                            <td>46</td>
+                                            <td>47</td>
+                                            <td>48</td>
+                                            <td>49</td>
                                         </tr>
                                     </table>
                                     <table>
                                         <tr>
-                                            <td>1</td>
+                                            <td>A</td>
                                         </tr>
                                         <tr>
-                                            <td>2</td>
+                                            <td>B</td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
+                                            <td>C</td>
                                         </tr>
                                     </table>
                                     <table class="ticket-table-seat">
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                            <td>10</td>
+                                            <td>11</td>
+                                            <td>12</td>
+                                            <td>13</td>
+                                            <td>14</td>
                                         </tr>
                                         <tr>
-                                            <td class="active">1</td>
-                                            <td class="active">1</td>
-                                            <td class="active">1</td>
-                                            <td class="active">1</td>
-                                            <td class="active">1</td>
-                                            <td class="active">1</td>
-                                            <td class="active">1</td>
+                                            <td>29</td>
+                                            <td>30</td>
+                                            <td>31</td>
+                                            <td>32</td>
+                                            <td>33</td>
+                                            <td>34</td>
+                                            <td>35</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td>50</td>
+                                            <td>51</td>
+                                            <td>52</td>
+                                            <td>53</td>
+                                            <td>54</td>
+                                            <td>55</td>
+                                            <td>56</td>
                                         </tr>
                                     </table>
                                     <table>
                                         <tr>
-                                            <td>1</td>
+                                            <td>A</td>
                                         </tr>
                                         <tr>
-                                            <td>2</td>
+                                            <td>B</td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
+                                            <td>C</td>
                                         </tr>
                                     </table>
                                     <table class="ticket-table-seat">
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                            <td>17</td>
+                                            <td>18</td>
+                                            <td>19</td>
+                                            <td>20</td>
+                                            <td>21</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td>36</td>
+                                            <td>37</td>
+                                            <td>38</td>
+                                            <td>39</td>
+                                            <td>40</td>
+                                            <td>41</td>
+                                            <td>42</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td>57</td>
+                                            <td>58</td>
+                                            <td>59</td>
+                                            <td>60</td>
+                                            <td>61</td>
+                                            <td>62</td>
+                                            <td>63</td>
                                         </tr>
                                     </table>
                                 </div>
-                                <%--<div class="ticket-box-available">
-                                    <input type="checkbox" />
-                                    <span>Boş</span>
-                                    <input type="checkbox" checked />
-                                    <span>Dolu</span>
-                                    <input type="checkbox" />
-                                    <span>Seçildi</span>
-                                </div>--%>
                             </div>
                         </div>
                         <div class="col-lg-3 offset-lg-1">
@@ -327,13 +248,12 @@
                                 <ul>
                                     <li>
                                         <p>Salon</p>
-                                        <asp:DropDownList ID="DropDownList2" AppendDataBoundItems="true" DataTextField="SalonAdi" DataValueField="SalonId" runat="server">
-                                            <asp:ListItem Value="o">Lütfen Seçim Yapınız</asp:ListItem>
+                                        <asp:DropDownList ID="DropDownList2" DataTextField="SalonAdi" DataValueField="SalonId" runat="server">
                                         </asp:DropDownList>
                                     </li>
                                     <li>
                                         <p>Zaman</p>
-                                        <span>2021.05.4   20:40</span>
+                                        <asp:DropDownList ID="DropDownList6" DataTextField="SeansSaati" DataValueField="SeansId" runat="server"></asp:DropDownList>
                                     </li>
                                     <li>
                                         <p>Film Adı</p>
@@ -343,7 +263,20 @@
                                     </li>
                                     <li>
                                         <p>Koltuk Numarası</p>
-                                        <span>2A, 2B, 2C</span>
+                                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                            <ContentTemplate>
+                                                <asp:DropDownList ID="DropDownList5" DataTextField="KoltukNo" DataValueField="KoltukId" runat="server">
+                                                </asp:DropDownList>
+                                                <asp:Button ID="koltukEkleBtn" runat="server" Text="EKLE"  OnClick="koltukEkleBtn_Click" />
+                                                <br />
+                                                <br />
+                                                <asp:Label ID="koltukLabel" runat="server" Text="Seçilen Koltuklar : "></asp:Label>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                        <br />
+                                        <asp:Button ID="biletAlBtn" runat="server" Text="Bilet Al" OnClick="biletAlBtn_Click" />
+
                                     </li>
                                 </ul>
                             </div>

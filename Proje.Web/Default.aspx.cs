@@ -19,14 +19,13 @@ namespace Proje.Web
             rptFilm.DataBind();
 
 
-            
-
             var next= filmVeri.Next();
 
             filmNextAdi.Text = next.FilmAdi;
             filmNextYonetmen.Text = next.FilmYonetmeni;
             filmNextAciklama.Text = next.Aciklama;
             nextSure.Text = next.Sure;
+            filmNextTur.Text = next.Tur;
             nextImage.ImageUrl = "Tasarim/assets/img/"+next.Resim+"";
 
 
@@ -36,9 +35,10 @@ namespace Proje.Web
             filmYonetmenPrev.Text = prev.FilmYonetmeni;
             filmPrevAciklama.Text = prev.Aciklama;
             prevSure.Text = prev.Sure;
+            filmPrevTur.Text = next.Tur;
             prevImage.ImageUrl = "Tasarim/assets/img/" + prev.Resim + "";
 
-
+       
         }
 
 

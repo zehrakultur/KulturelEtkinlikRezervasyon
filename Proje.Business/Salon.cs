@@ -17,5 +17,12 @@ namespace Proje.Business
             var sonuc = ent.Salon.ToList();
             return sonuc;
         }
+
+        public Proje.DataAccess.Salon SalonIdGetir()
+        {
+            Proje.DataAccess.KulturelEtkinlikEntities1 ent = new DataAccess.KulturelEtkinlikEntities1();
+            var salon = ent.Salon.Where(r => r.SalonAdi == SalonAdi).FirstOrDefault();
+            return salon;
+        }
     }
 }

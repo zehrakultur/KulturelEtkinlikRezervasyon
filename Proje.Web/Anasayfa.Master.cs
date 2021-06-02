@@ -11,65 +11,81 @@ namespace Proje.Web
 {
     public partial class Anasayfa : System.Web.UI.MasterPage
     {
+        public static List<string> koltuklar = new List<string>();
+        public static List<string> salonlar = new List<string>();
+
+
         protected void Page_Load(object sender, EventArgs e)
 
         {
+            if(Session["emailSession"] != null)
+            {
+                Proje.Business.KullaniciBilgi klnc = new Business.KullaniciBilgi();
+                var kullanici = klnc.EmailIdGetir(Session["emailSession"].ToString());
+                LinkButton1.Text = kullanici.KullaniciAd+ kullanici.KullaniciSoyad;
+            }
+
+
             Proje.Business.FilmBilgi filmAdiBilgi = new Business.FilmBilgi();
             var sonuc = filmAdiBilgi.FilmAdiBilgi();
-            DropDownList1.DataSource = sonuc;
-            DropDownList1.DataBind();
+            //DropDownList1.DataSource = sonuc;
+            //DropDownList1.Items.Clear();
+            //DropDownList1.DataBind();
+
+            foreach (var item in sonuc)
+            {
+                DropDownList1.Items.Add(item.FilmAdi);
+            }
 
             Proje.Business.Salon salonAdi = new Business.Salon();
             var salonSonuc = salonAdi.Listele();
-            DropDownList2.DataSource = salonSonuc;
-            DropDownList2.DataBind();
+            
+            foreach (var item in salonSonuc)
+            {
+                DropDownList2.Items.Add(item.SalonAdi);
+            }
+
+            Proje.Business.Koltuk koltukNo = new Business.Koltuk();
+            var koltukSonuc = koltukNo.KoltukListele();
+            foreach (var item in koltukSonuc)
+            {
+                DropDownList5.Items.Add(item.KoltukNo.ToString());
+                
+            }
+
+            Proje.Business.Seans seansSaati = new Business.Seans();
+            var seansSaat = seansSaati.SeansListele();
+            foreach (var item in seansSaat)
+            {
+                DropDownList6.Items.Add(item.SeansSaati.ToString());
+            }
+
+
 
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Proje.Business.KullaniciBilgi kullaniciGiris = new Business.KullaniciBilgi();
-            var sonuc = kullaniciGiris.Listele();
-            GridView1.DataSource = sonuc;
-            GridView1.DataBind();
-
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-BE850R5;Initial Catalog=KulturelEtkinlik;Integrated Security=True");
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("Select * from KullaniciBilgi Where KullaniciEmail='" + TextBox1.Text + "' and KullaniciSifre='" + TextBox2.Text + "' and KullaniciRol='" + DropDownList4.SelectedItem.Text + "'", con);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-
-            if (dr.Read())
+            Proje.Business.KullaniciBilgi kullanici = new Business.KullaniciBilgi();
+            bool sonuc = kullanici.GirisKontrol(TextBox1.Text, TextBox2.Text);
+            if (sonuc)
             {
-                Session["KullaniciEmail"] = dr["KullaniciEmail"].ToString();
-                if (DropDownList4.SelectedItem.Text == "Yönetici")
+                Session["emailSession"] = TextBox1.Text;
+                Session.Timeout = 120;
+                Proje.Business.KullaniciBilgi klnc = new Business.KullaniciBilgi();
+                var kullan = klnc.EmailIdGetir(Session["emailSession"].ToString());
+                if (kullan.KullaniciRol == "Yönetici")
                 {
                     Response.Redirect("Yonetici.aspx");
                 }
                 else
+                {
                     Response.Redirect("Default.aspx");
-            }
-
-            if (dr.Read())
-            {
-                Session["KullaniciEmail"] = dr["KullaniciEmail"].ToString();
-
-                Response.Redirect("Default.aspx");
-
-            }
-
-
-
-            if (TextBox1.Text == String.Empty || TextBox2.Text == String.Empty || TextBox3.Text == String.Empty || TextBox4.Text == String.Empty || DropDownList4.SelectedItem.Text == String.Empty)
-            {
-                Response.Write("<script>alert('Lütfen Boş Alanları Doldurunuz')</script>");
+                }               
             }
             else
-
             {
-                Response.Write("<script>alert('Giriş Başarılı')</script>");
+                Response.Write("<script>alert('Email ya da şifre hatalıdır.')</script>");
             }
-        
 
         }
 
@@ -99,6 +115,68 @@ namespace Proje.Web
                 Response.Write("<script>alert('Kayıt Başarılı')</script>");
             }
 
+        }
+
+        protected void koltukEkleBtn_Click(object sender, EventArgs e)
+        {
+            koltuklar.Add(DropDownList5.SelectedValue);
+            koltukLabel.Text += DropDownList5.SelectedValue + ",";
+
+
+        }
+
+        protected void biletAlBtn_Click(object sender, EventArgs e)
+        {
+            if (Session["emailSession"] != null)
+            {
+
+
+                //Salon
+                Proje.Business.Salon sln = new Business.Salon();
+                sln.SalonAdi = DropDownList2.SelectedValue;
+                var salon = sln.SalonIdGetir();
+
+                //Koltuk
+
+
+
+                //Filmler
+                Proje.Business.FilmBilgi flm = new Business.FilmBilgi();
+                flm.FilmAdi = DropDownList1.SelectedValue;
+                var film = flm.FilmIdGetir();
+
+                //Seans
+                Proje.Business.Seans sns = new Business.Seans();
+                sns.SeansSaati = DropDownList6.SelectedValue;
+                var seanssaati = sns.SeansIdGetir();
+
+                //Kullanici
+                Proje.Business.KullaniciBilgi klnc = new Business.KullaniciBilgi();
+                var kullanici = klnc.EmailIdGetir(Session["emailSession"].ToString());
+
+
+                foreach (var koltukno in koltuklar)
+                {
+                    Proje.Business.Koltuk klt = new Business.Koltuk();
+                    klt.KoltukNo = koltukno;
+                    var koltuk = klt.KoltukIdGetir();
+
+                    Proje.Business.BiletAl biletOlustur = new Business.BiletAl();
+                    biletOlustur.BiletAdi = "";
+                    biletOlustur.FilmIdFK = film.FilmId;
+                    biletOlustur.KoltukIdFK = koltuk.KoltukId;
+                    biletOlustur.SeansIdFK = seanssaati.SeansId;
+                    biletOlustur.SalonIdFK = salon.SalonId;
+                    biletOlustur.KullaniciIdFK = kullanici.KullaniciId;
+                    biletOlustur.BiletEkle();
+
+                }
+                Response.Write("<script>alert('Bilgileriniz Kaydedildi')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Lütfen Giriş Yapınız.')</script>");
+            }
         }
     }
 }

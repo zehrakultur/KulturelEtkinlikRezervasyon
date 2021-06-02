@@ -18,8 +18,8 @@ namespace Proje.DataAccess
         public Filmler()
         {
             this.Bilet = new HashSet<Bilet>();
-            this.Salon = new HashSet<Salon>();
             this.FilmSeans = new HashSet<FilmSeans>();
+            this.Salon = new HashSet<Salon>();
         }
     
         public int FilmId { get; set; }
@@ -29,13 +29,14 @@ namespace Proje.DataAccess
         public string Aciklama { get; set; }
         public string Resim { get; set; }
         public string Sure { get; set; }
+        public string Tur { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bilet> Bilet { get; set; }
         public virtual Turler Turler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Salon> Salon { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FilmSeans> FilmSeans { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Salon> Salon { get; set; }
     }
 }

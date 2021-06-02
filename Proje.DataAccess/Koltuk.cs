@@ -22,7 +22,7 @@ namespace Proje.DataAccess
     
         public int KoltukId { get; set; }
         public Nullable<int> SalonIdFK { get; set; }
-        public Nullable<int> KoltukNo { get; set; }
+        public string KoltukNo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bilet> Bilet { get; set; }

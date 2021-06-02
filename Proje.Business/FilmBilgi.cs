@@ -15,6 +15,7 @@ namespace Proje.Business
         public string Aciklama { get; set; }
         public string Resim { get; set; }
         public string Sure { get; set; }
+        public string Tur { get; set; }
 
         public List<Proje.DataAccess.Filmler> Listele()
         {
@@ -39,6 +40,8 @@ namespace Proje.Business
             return sonuc.FirstOrDefault();
         }
 
+       
+
         public List<Proje.DataAccess.Filmler> TumFilmler()
         {
             Proje.DataAccess.KulturelEtkinlikEntities1 tum = new DataAccess.KulturelEtkinlikEntities1();
@@ -51,6 +54,13 @@ namespace Proje.Business
             Proje.DataAccess.KulturelEtkinlikEntities1 filmAdlari = new DataAccess.KulturelEtkinlikEntities1();
             var sonuc = filmAdlari.Filmler.ToList();
             return sonuc;
+        }
+
+        public Proje.DataAccess.Filmler FilmIdGetir()
+        {
+            Proje.DataAccess.KulturelEtkinlikEntities1 ent = new DataAccess.KulturelEtkinlikEntities1();
+            var film = ent.Filmler.Where(r => r.FilmAdi == FilmAdi).FirstOrDefault();
+            return film;
         }
     }
 }

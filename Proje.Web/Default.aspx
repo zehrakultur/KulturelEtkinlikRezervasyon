@@ -27,7 +27,7 @@
                                             <i class="icofont icofont-star"></i>
                                             <i class="icofont icofont-star"></i>
                                         </div>
-                                        <h4><%# Eval("FilmYonetmeni") %></h4>
+                                        <h4><%# Eval("Tur") %></h4>
                                     </div>
                                     <div class="transformers-content mtr-30">
                                         <ul>
@@ -46,7 +46,7 @@
                                     <p><%# Eval("Aciklama") %></p>
 
                                     <div class="slide-trailor">
-                                        <h3>Tür</h3>
+                                        <h4><%# Eval("FilmYonetmeni") %></h4>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                             <i class="icofont icofont-star"></i>
                                             <i class="icofont icofont-star"></i>
                                         </div>
-                                        <h4><%# Eval("FilmYonetmeni") %></h4>
+                                        <h4><%# Eval("Tur") %></h4>
                                     </div>
                                     <div class="transformers-content mtr-30">
                                         <ul>
@@ -89,7 +89,7 @@
                                     <p><%# Eval("Aciklama") %></p>
 
                                     <div class="slide-trailor">
-                                        <h3>Tür</h3>
+                                        <h4><%# Eval("FilmYonetmeni") %></h4>
                                     </div>
                                 </div>
                             </div>
@@ -119,8 +119,7 @@
                                         <i class="icofont icofont-star"></i>
                                         <i class="icofont icofont-star"></i>
                                     </div>
-                                    <h4>
-                                        <asp:Label ID="filmYonetmenPrev" runat="server" Text="Label"></asp:Label></h4>
+                                    <h4><asp:Label ID="filmPrevTur" runat="server" Text="Label"></asp:Label></h4>
                                 </div>
                                 <div class="transformers-content mtr-30">
                                     <ul>
@@ -140,7 +139,9 @@
                                     <asp:Label ID="filmPrevAciklama" runat="server" Text="Label"></asp:Label></p>
                                 
                                 <div class="slide-trailor">
-                                    <h3>Tür</h3>
+                                    
+                                    <h4>
+                                        <asp:Label ID="filmYonetmenPrev" runat="server" Text="Label"></asp:Label></h4>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +168,7 @@
                                         <i class="icofont icofont-star"></i>
                                     </div>
                                     <h4>
-                                        <asp:Label ID="filmNextYonetmen" runat="server" Text="Label"></asp:Label></h4>
+                                        <asp:Label ID="filmNextTur" runat="server" Text="Label"></asp:Label></h4>
                                 </div>
                                 <div class="transformers-content mtr-30">
                                     <ul>
@@ -187,7 +188,8 @@
                                     <asp:Label ID="filmNextAciklama" runat="server" Text="Label"></asp:Label>
                                 </p>
                                 <div class="slide-trailor">
-                                    <h3>Tür</h3>
+                                    <h4><asp:Label ID="filmNextYonetmen" runat="server" Text="Label"></asp:Label></h4>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -73,12 +73,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Celebrities.aspx" />
+    <Content Include="BiletAl.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="GirisYap.aspx" />
     <Content Include="Hakkimizda.aspx" />
     <Content Include="Iletisim.aspx" />
-    <Content Include="Movie.aspx" />
     <Content Include="Tasarim\assets\css\bootstrap.min.css" />
     <Content Include="Tasarim\assets\css\icofont.css" />
     <Content Include="Tasarim\assets\css\magnific-popup.css" />
@@ -171,12 +169,12 @@
     <Compile Include="Anasayfa.Master.designer.cs">
       <DependentUpon>Anasayfa.Master</DependentUpon>
     </Compile>
-    <Compile Include="Celebrities.aspx.cs">
-      <DependentUpon>Celebrities.aspx</DependentUpon>
+    <Compile Include="BiletAl.aspx.cs">
+      <DependentUpon>BiletAl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Celebrities.aspx.designer.cs">
-      <DependentUpon>Celebrities.aspx</DependentUpon>
+    <Compile Include="BiletAl.aspx.designer.cs">
+      <DependentUpon>BiletAl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -184,13 +182,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GirisYap.aspx.cs">
-      <DependentUpon>GirisYap.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GirisYap.aspx.designer.cs">
-      <DependentUpon>GirisYap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hakkimizda.aspx.cs">
       <DependentUpon>Hakkimizda.aspx</DependentUpon>
@@ -205,13 +196,6 @@
     </Compile>
     <Compile Include="Iletisim.aspx.designer.cs">
       <DependentUpon>Iletisim.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Movie.aspx.cs">
-      <DependentUpon>Movie.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Movie.aspx.designer.cs">
-      <DependentUpon>Movie.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test2.aspx.cs">

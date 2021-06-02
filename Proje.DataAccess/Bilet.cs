@@ -15,7 +15,7 @@ namespace Proje.DataAccess
     public partial class Bilet
     {
         public int BiletId { get; set; }
-        public Nullable<int> BiletAdi { get; set; }
+        public string BiletAdi { get; set; }
         public Nullable<int> FilmIdFK { get; set; }
         public Nullable<int> KoltukIdFK { get; set; }
         public Nullable<int> SalonIdFK { get; set; }

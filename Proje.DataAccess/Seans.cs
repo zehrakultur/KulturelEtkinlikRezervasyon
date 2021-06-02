@@ -23,7 +23,7 @@ namespace Proje.DataAccess
         }
     
         public int SeansId { get; set; }
-        public Nullable<System.TimeSpan> SeansSaati { get; set; }
+        public string SeansSaati { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bilet> Bilet { get; set; }

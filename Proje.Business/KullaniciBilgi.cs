@@ -42,6 +42,7 @@ namespace Proje.Business
             return sonuc.FirstOrDefault();
         }
 
+
         //Entity Framework Veri Ekleme
         public string VeriEkleme(Proje.DataAccess.KullaniciBilgi nesne)
         {
@@ -107,6 +108,19 @@ namespace Proje.Business
 
 
             return "1";
+        }
+        public bool GirisKontrol(string kullaniciEmail, string sifre)
+        {
+            Proje.DataAccess.KulturelEtkinlikEntities1 ent = new DataAccess.KulturelEtkinlikEntities1();
+            var sorgu = ent.KullaniciBilgi.Any(x => x.KullaniciEmail == kullaniciEmail && x.KullaniciSifre == sifre);
+            return sorgu;
+        }
+
+        public Proje.DataAccess.KullaniciBilgi EmailIdGetir(string KullaniciEmail)
+        {
+            Proje.DataAccess.KulturelEtkinlikEntities1 ent = new DataAccess.KulturelEtkinlikEntities1();
+            var sonuc = ent.KullaniciBilgi.Where(p => p.KullaniciEmail == KullaniciEmail);
+            return sonuc.FirstOrDefault();
         }
     }
 }

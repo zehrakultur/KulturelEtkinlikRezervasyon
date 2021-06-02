@@ -5,29 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4edd93a77c944221acc32487d9c6c53a" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.Bilet" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.Filmler" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.Koltuk" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.KullaniciBilgi" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.Salon" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.Seans" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.Turler" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Filmler" ManuallyRouted="false" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Koltuk" ManuallyRouted="false" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_KullaniciBilgi" ManuallyRouted="false" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Salon" ManuallyRouted="false" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Seans" ManuallyRouted="false" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Filmler_Turler" ManuallyRouted="false" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Salon_Filmler" ManuallyRouted="false" />
-        <AssociationConnector Association="KulturelEtkinlikModel.FK_Koltuk_Salon" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.FilmSeans" Width="1.5" PointX="9.75" PointY="9" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.SalonSeans" Width="1.5" PointX="9.75" PointY="12.125" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Bilet" Width="1.5" PointX="6" PointY="4.75" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.BilgiEdinmeFormu" Width="1.5" PointX="5.75" PointY="1.5" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Filmler" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.FilmSeans" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Koltuk" Width="1.5" PointX="3.75" PointY="13" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.KullaniciBilgi" Width="1.5" PointX="3.75" PointY="9.625" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Salon" Width="1.5" PointX="1.5" PointY="12.75" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.SalonSeans" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Seans" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="KulturelEtkinlikModel.Turler" Width="1.5" PointX="1.5" PointY="8.625" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Filmler" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Koltuk" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_KullaniciBilgi" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Salon" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Bilet_Seans" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Filmler_Turler" />
         <AssociationConnector Association="KulturelEtkinlikModel.FK_FilmSeans_Filmler" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Salon_Filmler" />
         <AssociationConnector Association="KulturelEtkinlikModel.FK_FilmSeans_Seans" />
+        <AssociationConnector Association="KulturelEtkinlikModel.FK_Koltuk_Salon" />
         <AssociationConnector Association="KulturelEtkinlikModel.FK_SalonSeans_Salon" />
         <AssociationConnector Association="KulturelEtkinlikModel.FK_SalonSeans_Seans" />
-        <EntityTypeShape EntityType="KulturelEtkinlikModel.BilgiEdinmeFormu" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

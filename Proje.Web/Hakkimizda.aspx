@@ -28,7 +28,7 @@
 
                             <div class="single-portfolio">
                                 <div class="single-portfolio-img">
-                                    <img src="Tasarim/assets/img/<%# Eval("Resim") %>" alt="about" />
+                                    <img style="height:350px ; width:250px"  src="Tasarim/assets/img/<%# Eval("Resim") %>" alt="about" />
                                 </div>
                                 <div class="portfolio-content">
                                     <h2><%# Eval("FilmAdi") %></h2>
@@ -54,7 +54,7 @@
 
                             <div class="single-portfolio">
                                 <div class="single-portfolio-img">
-                                    <img src="Tasarim/assets/img/<%# Eval("Resim") %>" alt="about" />
+                                    <img style="height:350px ; width:250px" " src="Tasarim/assets/img/<%# Eval("Resim") %>" alt="about" />
                                 </div>
                                 <div class="portfolio-content">
                                     <h2><%# Eval("FilmAdi") %></h2>

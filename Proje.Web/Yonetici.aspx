@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Anasayfa.Master" AutoEventWireup="true" CodeBehind="Yonetici.aspx.cs" Inherits="Proje.Web.Yonetici" EnableEventValidation="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -52,10 +53,10 @@
                                         <div class="textarea-container">
                                             <asp:TextBox ID="TextBox4" runat="server" placeholder="Mesajınızı Buraya Yazınız" ForeColor="White" Height="125px" Width="830px"></asp:TextBox>
                                         </div>
-                                        <br/>
+                                        <br />
                                         <asp:Button ID="Button1" runat="server" Text="GÖNDER" BackColor="#eb315a" ForeColor="White" Width="339px" BorderColor="#eb315a" OnClick="Button1_Click" />
                                         <asp:GridView ID="GridView1" runat="server" Visible="false"></asp:GridView>
-                                        <br/>
+                                        <br />
                                     </div>
                                 </div>
                             </form>

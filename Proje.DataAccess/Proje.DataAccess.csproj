@@ -94,9 +94,6 @@
     <Compile Include="Seans.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Turler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
