@@ -158,7 +158,17 @@
     <Content Include="Tasarim\movies.html" />
     <Content Include="Tasarim\top-movies.html" />
     <Content Include="test2.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\servisekleme\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\servisekleme\test.disco" />
     <Content Include="Web.config" />
+    <Content Include="WebServis\test.asmx" />
     <Content Include="Yonetici.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -198,12 +208,26 @@
       <DependentUpon>Iletisim.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="test2.aspx.cs">
       <DependentUpon>test2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="test2.aspx.designer.cs">
       <DependentUpon>test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\servisekleme\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebServis\test.asmx.cs">
+      <DependentUpon>test.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Yonetici.aspx.cs">
       <DependentUpon>Yonetici.aspx</DependentUpon>
@@ -219,6 +243,7 @@
     <Content Include="Tasarim\assets\fonts\icofont7858.eot" />
     <Content Include="Tasarim\assets\fonts\icofont7858.ttf" />
     <Content Include="Tasarim\assets\fonts\icofont7858.woff" />
+    <None Include="Web References\servisekleme\test.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -235,6 +260,25 @@
       <Project>{42582df5-1e32-4788-aadc-1c4d22054b04}</Project>
       <Name>Proje.DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44311/WebServis/test.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\servisekleme\</RelPath>
+      <UpdateFromURL>https://localhost:44311/WebServis/test.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Proje_Web_servisekleme_test</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

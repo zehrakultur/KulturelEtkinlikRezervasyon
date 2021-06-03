@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Proje.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Proje_Web_servisekleme_test" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44311/WebServis/test.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

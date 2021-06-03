@@ -40,7 +40,7 @@ namespace Proje.Web
                 kullaniciListeleri.Add(kullanici);
             }
 
-
+            
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -72,6 +72,8 @@ namespace Proje.Web
 
             //GridView1.DataSource = dr;
             //GridView1.DataBind();
+
+           // var liste = new Business.Servis().ServisGetir();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
